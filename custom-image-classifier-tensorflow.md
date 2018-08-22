@@ -9,7 +9,9 @@ Jump [here](#steps-to-create-the-custom-image-classifier-built-for-this-experime
 
 Everytime I see a smartphone camera draw a neat rectangle around my face, it reminds me of the day I graduated from DOOM to the FPS of 90s that would pin-point the enemy with a neat rectangle around him. In either case, a neat rectangle means I'm ready to shoot!
 
-I have always been fascinated by object detection and face-recognition algorithms and having experimented since early days using [OpenCV/Haar Cascade classifiers](https://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html) and the [Viola-Jones](https://www.youtube.com/watch?v=_QZLbR67fUU) face-detection algorithms, it’s amazing how far the algorithms have come in the last few years. [Convolutional Neural Networks](https://pjreddie.com/darknet/yolo/) and [supervised learning approaches](https://github.com/tensorflow/models/tree/master/research/object_detection) have really improved the training and detection performance multifold in several areas (speed, accuracy, space & complexity to name a few) and it’s not unfair to say that today, given my last 10 years photo collection, the facebook’s face ID algorithm will do far better than me in recognizing my old friends :).
+I have always been fascinated by object detection and face-recognition algorithms and having experimented since early days using [OpenCV/Haar Cascade classifiers](https://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html) and the [Viola-Jones](https://www.youtube.com/watch?v=_QZLbR67fUU) face-detection algorithms, it’s amazing how far the algorithms have come in [the last few years]. [Convolutional Neural Networks](https://pjreddie.com/darknet/yolo/) and [supervised learning approaches](https://github.com/tensorflow/models/tree/master/research/object_detection) have really improved the training and detection performance multifold in several areas (speed, accuracy, space & complexity to name a few). Given my last 10 years photo database, it's quite likely the facebook’s face ID algorithm will do far better than me in recognizing my old friends :smile:.
+
+    [the last few years]: https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318
 
 When it comes to machine learning frameworks, I am particularly drawn to [tensorflow by Google](https://www.tensorflow.org/) and was thus delighted when I came across [this codelab](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0) & [tutorial](https://www.tensorflow.org/tutorials/keras/basic_classification) promising to teach anyone the basics of building their own image classifier. This really dense [video](https://www.youtube.com/watch?v=QfNvhPx5Px8) pushed me over any remaining hesitation and I set about training my own CNN for a custom Image classifier. 
 
@@ -57,7 +59,7 @@ $ cd tensorflow_image_classifier
 ```
 ## Training the image classifier
 
-We will be using supervised learning: this means we will initially supply a set of images that are labelled with the categories they represent to help the CNN learn more about the categories. Also, we will use the transfer learning approach as explained in [this codelab](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0) - we will use the inception model that has been trained to classify images (of flowers) and retrain it to classify images of our superheroes. This approach drastically reduces the training time for deep multilayered neural networks. This also shows how CNNs generalize well across classification problems by their ability to progressively code more and more intricate features into deeper layers of the network.
+We will be using supervised learning - this means we will initially supply a set of images that are labelled with the categories they represent to help the classifer learn the categories. Also, we will use the transfer learning approach as explained in [this codelab](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0) - we will use the inception model that has been trained to classify images (of flowers) and retrain it to classify images of our superheroes. This approach drastically reduces the training time for deep multilayered neural networks. This also shows how CNNs generalize well across classification problems by their ability to progressively code more and more intricate features into deeper layers of the network.
 
 Tensorflow comes with an example python script that we can leverage for this purpose. To start this training on the cloned repository, just run
 
@@ -78,21 +80,25 @@ $ bash ./guess.sh $PWD/tf_files $PWD/test_data/images00.jpg
 ```
 
 where images00.jpg is the file we want to test:
-[image]
+![image](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/images00.jpg "Test Image")
 
-The script outputs:
-<< output >>
+The script outputs...
 
-which is pretty accurate.
+```
+elsa (score = 0.99621)
+darth vader (score = 0.00379)
+```
 
-To guess an entire set of images, we can run it on a directory full of images giving it another location to save classified images. Each test image is copied to this location and renamed to <category>-[score].<ext> where <category> is the predominant category into which the image was classifed (one of “darth_vader” or “elsa”) and [score] is a number representing how highly it fits into the category. For example,
+...which is pretty accurate.
+
+To classify an entire set of images, we can run it on a directory full of test images giving it another location to save classified images. Each test image is copied to this location and renamed to <category>-[score].<ext> where <category> is the predominant category into which the image was classifed (one of “darth_vader” or “elsa”) and [score] is a number representing how highly it fits into the category. For example,
 
 ```bash
 $ mkdir classified
 $ bash ./guessDir.sh $PWD/tf_files $PWD/test_data $PWD/classified
 ```
 
-Note: There are scripts with name train.sh, guess.sh etc at the top-level directory of the repo and inside the src folder. Invoke the ones in the top-level dir – these provide a wrapper around the scripts in src directory.
+> Note: There are scripts with name train.sh, guess.sh etc at the top-level directory of the repo and inside the src folder. Invoke the ones in the top-level dir – these provide a wrapper around the scripts in src directory.
 
 That’s it! The `classified` folder now contains labelled images as classified by our custom classifier. 
 
@@ -100,7 +106,7 @@ Below is a quick re-cap of all the steps.
 
 ## Steps to create the custom image classifier built for this experiment
 
-1. Get the docker image `docker pull xblaster/tensor-guess`
+1. Grab the docker image: `docker pull xblaster/tensor-guess`
 1. Clone the repo: `git clone https://github.com/koushik-ms/tensorflow_image_classifier.git && cd tensorflow_image_classifier`
 2. Train the classifier: `bash ./train.sh $PWD/tf_files`
 3. Test with 1 image: `bash ./guess.sh $PWD/tf_files $PWD/test_data/images00.jpg`
@@ -109,36 +115,37 @@ Below is a quick re-cap of all the steps.
 ## Analysing test results
 
 While looking at the classifier performance on test images, it performs surpisingly well even on images that have many deviations, for example: 
-![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/s2images87.jpg), ![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/images90.jpg) and ![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesws.jpg). 
+
+![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/s2images87.jpg) ![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/images90.jpg) ![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesws.jpg)
 
 One particular test image throws a real challenge:
 
 ![Challenge](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesfg.jpg "Challenging Test Image")
 
-This image contains both the features of Darth Vader (sharp lines, dark colors, the bottom half of a pentagon) and those of Elsa (dress color, pixie dust, ...). Fittingly, the classifier assigns a hybrid score to it, although it assigns a higher score for Darth. 
+This image contains both the features of Darth Vader (sharp lines, dark colors, the bottom half of a pentagon) and those of Elsa (dress color, pixie dust, ...). Fittingly, the classifier assigns a hybrid score to it, although it assigns a higher score for Darth Vader.
 
+```bash
 $ bash guess.sh $PWD/tf_files $PWD/test_data/imagesfg.jpg
-<<output>>
+darth vader (score = 0.56964)
+elsa (score = 0.43036)
+```
 
-A human observer will have no trouble associating this picture with Elsa (given the categories) but the classifier is misled. The cause for this is clear – other than the presence of the features explained above the prominent eyes of Elsa are missing. A quick hack confirms this: creating another test-image correcting some of these errors (white background) and adding placeholder eyes (just black ellipses above the neck area) and giving it to our classifier makes it “see” Elsa in the image:
+A human observer will have no trouble associating this picture with Elsa (given the categories) but the classifier is misled. The cause for this is clear – other than the presence of the features explained above the prominent eyes of Elsa are missing. A quick hack confirms this: creating another [test-image](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesff.jpg) correcting some of these features (white background) and adding placeholder eyes (just black ellipses above the neck area) and giving it to our classifier makes it “see” Elsa in the image:
 
+```bash
 $ bash guess.sh $PWD/tf_files $PWD/test_data/imagesff.jpg
-<<output>>
+elsa (score = 0.94632)
+darth vader (score = 0.05368)
+```
 
-This is a bias in our training data set in which there were very few pictures of Elsa’s dress alone and none of her from the back without her face showing in the picture.
+The original classification error indicates a bias in our training data set in which, there were very few pictures of Elsa’s dress alone and none of her from the back without her face showing in the picture.
 
-This provides us a clue of how the training data can be improved to improve the accuracy of classifier. 
+This provides us a clue as to how the training data can be improved to further improve the accuracy of classifier.
 
 ## On Superheroes of the time
 
 Every generation has its own superheroes which reflect the collective psyche of the generation replete with values it holds dear, the environment it operates in and the challenges it must overcome. Every generation has its own challenges and cherishes its own superheroes that get the job done.
 
-Pictures say a thousand words and whether in art, photography or education, images play a key role. Every generation, thus, has been faced with and has overcome a significant challenge in image processing. In the 90s it was image compression and encoding breakthroughs that led to the ubiquitous digital multimedia culture and in the past decade it has been image classification and object detection. If codecs were the superheroes of yesteryears then the current generation belongs to machine learning frameworks like tensorflow and to neural networks.
+Pictures say a thousand words and whether in art, photography or education, images play a key role. Every generation, thus, has been faced with and has overcome a significant challenge in image processing. In the 90s, it was image compression and encoding breakthroughs that led to the ubiquitous digital multimedia culture. In the past decade, it has been image classification and object detection. If codecs were the superheroes of yesteryears then the current generation belongs to machine learning frameworks like tensorflow and to neural networks.
 
 Hope this tutorial was useful to you and helps you gets closer to your goal in understanding and applying machine learning. I would like to hear your comments and see where you will apply this – go ahead and fork the github repository and make it your own. Link to your model (tf_files/retrained_graph.pb) in github or share it.
-
-
-Useful links:
-https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318
-https://github.com/Nikasa1889/HistoryObjectRecognition
-https://github.com/powerline/fonts
