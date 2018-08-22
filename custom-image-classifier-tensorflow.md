@@ -3,7 +3,7 @@
 This is a summary of the experiences & learnings from my experiment a few months ago building a tensorflow-based image classifier. 
 
 ## TL; DR 
-Jump [here]() to learn how you can build your own in 1, 2,...5!
+Jump [here](#steps-to-create-the-custom-image-classifier-built-for-this-experiment) to learn how you can build your own in 1, 2,...5!
 
 ## Ready to Shoot!
 
@@ -108,7 +108,8 @@ Below is a quick re-cap of all the steps.
 
 ## Analysing test results
 
-While looking at the classifier performance on test images, it performs surpisingly well even on images that have many deviations – e.g., [this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/s2images87.jpg), [this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/images90.jpg) and [this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesws.jpg). 
+While looking at the classifier performance on test images, it performs surpisingly well even on images that have many deviations, for example: 
+![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/s2images87.jpg), ![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/images90.jpg) and ![this](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesws.jpg). 
 
 One particular test image throws a real challenge:
 
@@ -135,3 +136,9 @@ Every generation has its own superheroes which reflect the collective psyche of 
 Pictures say a thousand words and whether in art, photography or education, images play a key role. Every generation, thus, has been faced with and has overcome a significant challenge in image processing. In the 90s it was image compression and encoding breakthroughs that led to the ubiquitous digital multimedia culture and in the past decade it has been image classification and object detection. If codecs were the superheroes of yesteryears then the current generation belongs to machine learning frameworks like tensorflow and to neural networks.
 
 Hope this tutorial was useful to you and helps you gets closer to your goal in understanding and applying machine learning. I would like to hear your comments and see where you will apply this – go ahead and fork the github repository and make it your own. Link to your model (tf_files/retrained_graph.pb) in github or share it.
+
+
+Useful links:
+https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318
+https://github.com/Nikasa1889/HistoryObjectRecognition
+https://github.com/powerline/fonts
