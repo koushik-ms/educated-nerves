@@ -9,7 +9,7 @@ Jump [here](#steps-to-create-the-custom-image-classifier-built-for-this-experime
 
 Everytime I see a smartphone camera draw a neat rectangle around my face, it reminds me of the day I graduated from DOOM to the FPS of 90s that would pin-point the enemy with a neat rectangle around him. In either case, a neat rectangle means I'm ready to shoot!
 
-I have always been fascinated by object detection and face-recognition algorithms and having experimented since early days using [OpenCV/Haar Cascade classifiers](https://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html) and the [Viola-Jones](https://www.youtube.com/watch?v=_QZLbR67fUU) face-detection algorithms, it’s amazing how far the algorithms have come in [the last few years]. [Convolutional Neural Networks](https://pjreddie.com/darknet/yolo/) and [supervised learning approaches](https://github.com/tensorflow/models/tree/master/research/object_detection) have really improved the training and detection performance multifold in several areas (speed, accuracy, space & complexity to name a few). Given my last 10 years photo database, it's quite likely the facebook’s face ID algorithm will do far better than me in recognizing my old friends :smile:.
+I have always been fascinated by object detection and face-recognition algorithms and having experimented since early days using [OpenCV/Haar Cascade classifiers](https://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html) and the [Viola-Jones](https://www.youtube.com/watch?v=_QZLbR67fUU) face-detection algorithms, it’s amazing how far the algorithms have come in [the last few years]. [Convolutional Neural Networks](https://pjreddie.com/darknet/yolo/) and [supervised learning approaches](https://github.com/tensorflow/models/tree/master/research/object_detection) have really improved the training and detection performance multifold in several areas (speed, accuracy, space & complexity to name a few). Given my last 10 years photo database, it's quite likely the facebook’s face ID algorithm will do far better than me in recognizing my old friends. :smile:
 
 [the last few years]: https://medium.com/@nikasa1889/the-modern-history-of-object-recognition-infographic-aea18517c318
 
@@ -33,7 +33,7 @@ This will download a few GB of data from the internet to get the different layer
 
 ## Data is the new Oil!
 
-To train an accurate classifier requires a lot of training data of good quality. In my case I was looking for images with Darth Vader and Elsa. And, yes, Google is my best friend. I made sure I included some non-standard images e.g., [this][1] and [this][2] for Darth Vader and [this][3] and [this][4] for Elsa. For each category, I downloaded about 250-300 images in relatively small sizes (300x150 or smaller) and set aside about 10% of this for testing and used the remaining images for training. 
+To train an accurate classifier requires a lot of training data of good quality. In my case I was looking for images with Darth Vader and Elsa. And, yes, Google is my best friend. I made sure I included some non-standard images e.g., [this][1] and [this][2] for Darth Vader; [this][3] and [this][4] for Elsa. For each category, I downloaded about 250-300 images in relatively small sizes (300x150 or smaller) and set aside about 10% of this for testing and used the remaining images for training.
 
 In general, the success of any ML / AI training really depends on the quality of training data and there are methods to [prepare][5] [the data][6].
 
