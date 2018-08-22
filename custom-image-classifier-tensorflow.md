@@ -33,7 +33,7 @@ This will download a few GB of data from the internet to get the different layer
 
 ## Data is the new Oil!
 
-To train an accurate classifier requires a lot of training data of good quality. In my case I was looking for images with Darth Vader and Elsa. And, yes, Google is my best friend. I made sure I included some non-standard images e.g., [this][1] and [this][2] for Darth Vader; [this][3] and [this][4] for Elsa. For each category, I downloaded about 250-300 images in relatively small sizes (300x150 or smaller) and set aside about 10% of this for testing and used the remaining images for training.
+To train an accurate classifier requires a lot of training data of good quality. In my case I was looking for images with Darth Vader and Elsa. And, yes, Google is my best friend. I made sure I included some non-standard images for [Darth][1] [Vader][2] and [for][3] [Elsa][4]. For each category, I downloaded about 250-300 images in relatively small sizes (300x150 or smaller) and set aside about 10% of this for testing and used the remaining images for training.
 
 In general, the success of any ML / AI training really depends on the quality of training data and there are methods to [prepare][5] [the data][6].
 
