@@ -15,7 +15,7 @@ I have always been fascinated by object detection and face-recognition algorithm
 
 When it comes to machine learning frameworks, I am particularly drawn to [tensorflow by Google](https://www.tensorflow.org/) and was thus delighted when I came across [this codelab](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0) & [tutorial](https://www.tensorflow.org/tutorials/keras/basic_classification) promising to teach anyone the basics of building their own image classifier. This really dense [video](https://www.youtube.com/watch?v=QfNvhPx5Px8) pushed me over any remaining hesitation and I set about training my own CNN for a custom Image classifier. 
 
-## Distinguishing superheros
+## Distinguishing superheroes
 
 Can you tell the difference between [Darth Vader](https://en.wikipedia.org/wiki/Darth_Vader) and [Elsa](https://en.wikipedia.org/wiki/Elsa_(Frozen)) ? Of course, even a 3rd grader (like my daughter) could do that. In fact, it was in one of those discussions with her about Elsa and her pervasiveness in my daughter’s life then, that the conversation veered to Star Wars (my childhood fascination) and the mighty Darth Vader. Given my daughter couldn’t understand, for the life of her, why Darth Vader would be any cool, we were finally even... and I had an idea!
 
@@ -135,7 +135,7 @@ darth vader (score = 0.56964)
 elsa (score = 0.43036)
 ```
 
-A human observer will have no trouble associating this picture with Elsa (given the categories) but the classifier is misled. The cause for this is clear – other than the presence of the features explained above the prominent eyes of Elsa are missing. A quick hack confirms this: creating another [test-image](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesff.jpg) correcting some of these features (white background) and adding placeholder eyes (just black ellipses above the neck area) and giving it to our classifier makes it “see” Elsa in the image:
+A human observer will have no trouble associating this picture with Elsa (given the categories) but the classifier is misled. The cause for this is clear – other than the presence of the features explained above the prominent eyes of Elsa are missing. A quick hack confirms this: creating another [test-image](https://github.com/koushik-ms/tensorflow_image_classifier/raw/master/test_data/imagesff.jpg) correcting some of these features (white background), adding placeholder eyes (just black ellipses above the neck area) and giving it to our classifier makes it “see” Elsa in the image:
 
 ```bash
 $ bash guess.sh $PWD/tf_files $PWD/test_data/imagesff.jpg
