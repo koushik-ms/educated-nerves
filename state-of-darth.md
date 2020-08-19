@@ -1,23 +1,15 @@
 # State of Darth
 
-A little over two years ago as I was getting to know Machine learning, I had a chance to train a CNN to classify superheroes. At that time, I used the "inception" model which was the state of the art and trained it using the transfer learning approach. The whole thing took me 3-4 days to finish including training the model (I am not sure if I had a GPU then) and writing the post.
+When it comes to Deep Learning, does the state-of-the-art make it any easier to adopt DL today than it was, say, two years ago ? Should you even be bothered about starting to learn ML now, if you haven't yet had a chance to explore and use it in your work/ personal projects ? 
 
-Recently I had a chance to repeat this experiment. As I was going through the fast.ai course titled "Practical Deep Learning for developers", a lesson presented a really simple approach to transfer learning using the resnet34 (arguably, the current state-of-the-art for image classification) and I decided to try it on the dataset from 2 years ago.
+The answers to both these questions is, as I realized recently, a resounding yes and the state-of-the art is about a 100x better than what it was 2 years ago. How do I know that ? Well, A few weeks ago I had a chance to repeat an exercise I did while getting introduced to ML - a [transfer learning approach](https://github.com/koushik-ms/educated-nerves/blob/master/custom-image-classifier-tensorflow.md) to train a deep learning model to classify images of "Darth Vader" and "Elsa". As I was going through the fast.ai [course](https://course.fast.ai/) titled "Practical Deep Learning for developers", I came across a [simple approach to transfer learning](https://github.com/fastai/course-v3/blob/master/nbs/dl1/lesson2-download.ipynb) using the resnet34 (arguably, the current state-of-the-art for image classification) and I decided to try it on the same problem.
 
-In less than 20 minutes I was able to finish training the model on the cloud. The setup, training/test separation, data augmentation etc was really simple. 
+What had taken about 4 days from start to finish in 2018 was over in all of 30 mins, including the setup, data augmentation, even training the model on a GPU in the cloud. 
 
-There was only one problem - even after having the number of images or depth of the NN (resnet34 -> 18) the model accuracy was close to 100%. So I decided to throw batman into the mix to level the problem up a little bit. Nevertheless, the model trained quite quickly and was able to classify with ~95% accuracy. Even for the images that were too tricky for the older model the new one had no problems. 
+Except, there was one "problem" -  the accuracy was too high. It was close 99% even with half the images and half the number of hidden layers (resnet18) so I added batman to the mix to level the problem up a bit. One more iteration and 20 mins later (with just auto-downloaded Google image search results) the model was accurately classifying the three classes - even the images that were too tricky for the earlier model. The final notebook is available [here](https://github.com/koushik-ms/educated-nerves/blob/master/Superheroes.ipynb).
 
-conclude about state of art
+The key takeaway for me was the 100x reduction in the time it took and the ease of building something like this thanks to constant research and blossoming of new tools & services (shout out to [Gradient](https://gradient.paperspace.com/), [colab](http://colab.research.google.com/) and [fastai](https://docs.fast.ai/)). Thus, It is constantly getting easier to plug learning and inference as a feature into any area of software that could benefit from it (even something as ubiquitous as, say, [code auto-completion](https://www.kite.com/)).
 
-The key takeaway for me is how the state-of-the-art makes it almost trivial to include learning/ inference as part of any software components. For enthusiasts like me who view DL as a tool (rather than the core domain) this makes me wonder why not make learning and adapting a feature of every piece of software where it makes sense.
+Finally, I'd strongly recommend the fast.ai course for anyone interested in learning how to apply deep learning into their own area of work. If you're willing to give only one DL course a try, let it be this one. 
 
-recommend fastai course
-
-Finally I can't recommend the fast.ai course enough for anyone interested in applying DL into their field / area of work. Regardless of level of math and previous ML/AI exposure the course gets you up and running with practical tools that can be used from day one. If you will do one ML/DL course, let it be this one 
-
-
-
-Ps. I'm in no way associated with fast.ai just a happy student.
-
-
+Ps. Many thanks to Himanshu and Sameer for introducing me to this.
